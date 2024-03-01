@@ -7,7 +7,13 @@ from typing import (
     Union,
 )
 
-from disnake import GuildCommandInteraction, Member, Role, User
+from disnake import (
+    CustomActivity,
+    GuildCommandInteraction,
+    Member,
+    Role,
+    User,
+)
 from disnake.ext.commands import InteractionBot, Param, guild_only
 from dotenv import load_dotenv
 
@@ -16,7 +22,12 @@ VALID_HEX_CHARS: Final[Literal["0123456789abcdef"]] = "0123456789abcdef"
 LEN_OF_HEX_STR: Final[int] = 6
 
 
-bot = InteractionBot()
+bot = InteractionBot(
+    activity = CustomActivity(
+        state="🌈 /colour-role",
+        name="Custom Status",
+    ),
+)
 member_roles: Dict[int, Role] = {}
 
 
@@ -59,14 +70,14 @@ def _convert_str_hex_to_int_hex(str_hex: str) -> Optional[int]:
 @guild_only()
 @bot.slash_command(
     name="colour-role",
-    description="Edit / create your custom colour role.",
+    description="🌈 Edit / create your custom colour role.",
 )
 async def colour_role(_: GuildCommandInteraction[InteractionBot]) -> None:
     pass
 
 @colour_role.sub_command(
     name="set-colour",
-    description="Set the colour of your colour role.",
+    description="🌈 Set the colour of your colour role.",
 )
 async def colour_role_set_colour(
     inter: GuildCommandInteraction[InteractionBot],
@@ -105,7 +116,7 @@ async def colour_role_set_colour(
 
 @colour_role.sub_command(
     name="delete-role",
-    description="Delete your colour role.",
+    description="🌈 Delete your colour role.",
 )
 async def colour_role_delete_colour(
     inter: GuildCommandInteraction[InteractionBot],
