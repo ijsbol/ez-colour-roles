@@ -106,6 +106,8 @@ async def colour_role_set_colour(
             colour=hex_int,
             reason="User requested colour role."
         )
+        assert isinstance(inter.user, Member)
+        await inter.user.add_roles(role)
     else:
         if role.colour.value != hex_int:
             await role.edit(
