@@ -10,6 +10,7 @@ from typing import (
 from disnake import (
     CustomActivity,
     GuildCommandInteraction,
+    Intents,
     Member,
     Role,
     User,
@@ -20,13 +21,14 @@ from dotenv import load_dotenv
 
 VALID_HEX_CHARS: Final[Literal["0123456789abcdef"]] = "0123456789abcdef"
 LEN_OF_HEX_STR: Final[int] = 6
-
+INTENTS: Final[Intents] = Intents(guilds=True)
 
 bot = InteractionBot(
     activity = CustomActivity(
         state="🌈 /colour-role",
         name="Custom Status",
     ),
+    intents=INTENTS,
 )
 member_roles: Dict[int, Role] = {}
 
