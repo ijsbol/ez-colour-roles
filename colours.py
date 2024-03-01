@@ -1,12 +1,11 @@
 from os import getenv
-from typing import Final, Literal, TypeAlias
+from typing import Final, Literal
 
 from disnake import GuildCommandInteraction, Member, Role, User
 from disnake.ext.commands import InteractionBot, Param, guild_only
 from dotenv import load_dotenv
 
 
-Hex: TypeAlias = "int"
 VALID_HEX_CHARS: Final[Literal["0123456789abcdef"]] = "0123456789abcdef"
 LEN_OF_HEX_STR: Final[int] = 6
 
@@ -39,7 +38,7 @@ async def _fetch_users_role(member: Member | User) -> Role | None:
     return None
 
 
-def _convert_str_hex_to_int_hex(str_hex: str) -> Hex | None:
+def _convert_str_hex_to_int_hex(str_hex: str) -> int | None:
     """Converts a str representation of a hex int to an int representation of a hex int"""
 
     str_hex = str_hex.lower()
