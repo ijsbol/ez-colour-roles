@@ -1,5 +1,11 @@
 from os import getenv
-from typing import Final, Literal
+from typing import (
+    Dict,
+    Final,
+    Literal,
+    Optional,
+    Union,
+)
 
 from disnake import GuildCommandInteraction, Member, Role, User
 from disnake.ext.commands import InteractionBot, Param, guild_only
@@ -11,17 +17,17 @@ LEN_OF_HEX_STR: Final[int] = 6
 
 
 bot = InteractionBot()
-member_roles: dict[int, Role] = {}
+member_roles: Dict[int, Role] = {}
 
 
-def _get_user_role_name(member: Member | User) -> str:
+def _get_user_role_name(member: Union[Member, User]) -> str:
     """Generates the users role name"""
     # Change this to whatever you want, just make sure that it's
     #   unique per user, consistent, and below 250 chars (role name max len).
     return str(member.id)
 
 
-async def _fetch_users_role(member: Member | User) -> Role | None:
+async def _fetch_users_role(member: Union[Member, User]) -> Optional[Role]:
     """Fetches the users colour role"""
     if not isinstance(member, Member):
         return None
@@ -38,7 +44,7 @@ async def _fetch_users_role(member: Member | User) -> Role | None:
     return None
 
 
-def _convert_str_hex_to_int_hex(str_hex: str) -> int | None:
+def _convert_str_hex_to_int_hex(str_hex: str) -> Optional[int]:
     """Converts a str representation of a hex int to an int representation of a hex int"""
 
     str_hex = str_hex.lower()
