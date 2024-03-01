@@ -139,7 +139,7 @@ async def colour_role_delete_colour(
 
 if __name__ == "__main__":
     load_dotenv()
-    discord_bot_token: str | None = getenv("DISCORD_BOT_TOKEN")
+    discord_bot_token: Optional[str] = getenv("DISCORD_BOT_TOKEN")
     if discord_bot_token is None:
         raise EnvironmentError("`DISCORD_BOT_TOKEN` was not provided.")
 
