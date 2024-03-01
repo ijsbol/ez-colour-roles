@@ -1,4 +1,4 @@
-# Per user colour roles
+# Ez Colour Roles
 Simple custom colour role per user - only supports max 250 users (discord guild role limit)
 
 # Setup
@@ -10,5 +10,9 @@ Simple custom colour role per user - only supports max 250 users (discord guild 
 6. Replace `DISCORD_BOT_TOKEN = "TOKEN_HERE"` with your token as `TOKEN_HERE`
 7. Run the bot with `python colours.py`.
 8. To run it constantly look into `nohup` or `screen` (linux) :3
+
+# Public bot
+For those of you who just want to use it without figuring out what the hell a Linux is:
+🔗 Invite link: https://api.scrumpbot.com/i/1213141681231237180/268435456
 
 PRs are welcome.
