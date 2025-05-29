@@ -312,8 +312,8 @@ if __name__ == "__main__":
     if discord_bot_token is None:
         raise EnvironmentError("`DISCORD_BOT_TOKEN` was not provided.")
 
-    if getenv("PROXY_URL"):
+    if proxy_url := getenv("PROXY_URL"):
         from disnake.http import Route
-        Route.BASE = getenv("PROXY_URL")
+        Route.BASE = proxy_url
 	
     bot.run(discord_bot_token)
